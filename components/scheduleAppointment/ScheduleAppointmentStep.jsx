@@ -20,7 +20,9 @@ export default function ScheduleAppointmentStep({ stepData }) {
     <div className="scheduleAppointment-modal-step">
       <div className="scheduleAppointment-modal-step__icon">
         {showIcon(stepData.icon)}
-        {stepData.split && <div className="scheduleAppointment-modal-step__split-line"></div>}
+        {stepData.split && (
+          <div className="scheduleAppointment-modal-step__split-line"></div>
+        )}
       </div>
       <p className="scheduleAppointment-modal-step__number">
         {stepData.number}

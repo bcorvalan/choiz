@@ -40,9 +40,9 @@ export default function Home({ drugsData, faqsData, error }) {
       ) : (
         <ModalProvider>
           <main>
-            <ScheduleAppointmentModal/>
+            <ScheduleAppointmentModal />
             <MainBanner />
-            <ScheduleAppointment/>
+            <ScheduleAppointment />
             <DrugsList drugsData={drugsData.data} />
             <FrequentQuestions questionsData={faqsData} />
           </main>

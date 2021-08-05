@@ -12,24 +12,27 @@ export default function FrequentQuestion({ question }) {
       active === "active" ? "0px" : `${content.current.scrollHeight}px`
     );
     setRotate(
-      active === "active" ? "frequent-question__icon" : "frequent-question__icon  frequent-question__icon--rotate"
+      active === "active"
+        ? "frequent-question__icon"
+        : "frequent-question__icon  frequent-question__icon--rotate"
     );
   }
 
   return (
     <div className="frequent-question__wrapper">
-      <button className={`frequent-question ${active}`} onClick={toggleFrequentQuestion}>
+      <button
+        className={`frequent-question ${active}`}
+        onClick={toggleFrequentQuestion}
+      >
         <p className="frequent-question__title">{question.title}</p>
-        <Chevron className={`${rote}`} width={10}  />
+        <Chevron className={`${rote}`} width={10} />
       </button>
       <div
         ref={content}
         style={{ maxHeight: `${height}` }}
         className="frequent-question__content"
       >
-        <p className="frequent-question__text">
-            {question.description}
-        </p>
+        <p className="frequent-question__text">{question.description}</p>
       </div>
     </div>
   );

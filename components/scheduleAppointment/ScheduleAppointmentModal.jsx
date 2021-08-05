@@ -1,10 +1,10 @@
 import React from "react";
 import CloseCross from "../svgs/CloseCross";
 import ScheduleAppointmentStep from "./ScheduleAppointmentStep";
-import {useModalUpdate , useModal} from '../../context/Modalcontext'
+import { useModalUpdate, useModal } from "../../context/Modalcontext";
 export default function ScheduleAppointmentModal() {
-  const showModal = useModal()
-  const toggleModal = useModalUpdate()
+  const showModal = useModal();
+  const toggleModal = useModalUpdate();
   const stepInfo = [
     {
       icon: "stepOne",
@@ -13,7 +13,7 @@ export default function ScheduleAppointmentModal() {
         "Completás algunas preguntas breves y nos contás el motivo de la consulta.",
       description:
         "Vamos a elegir la doctora adecuada según su especialidad y tu necesidad.",
-        split:true
+      split: true,
     },
     {
       icon: "stepTwo",
@@ -22,7 +22,7 @@ export default function ScheduleAppointmentModal() {
       description:
         "Si tenés Swiss Medical es GRATIS* y si no, podes pedir reintegro",
       observation: "*Excepto para planes que requieren copago",
-      split:true
+      split: true,
     },
     {
       icon: "stepThree",
@@ -30,7 +30,7 @@ export default function ScheduleAppointmentModal() {
       title:
         "Tenés la videollamada con tu doctora, desde donde estés y sin límite de tiempo.",
       description: "¡Dura lo que vos necesites!",
-      split:false
+      split: false,
     },
   ];
   return (

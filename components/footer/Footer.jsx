@@ -19,16 +19,24 @@ export default function Footer() {
         <p className="footer__text">¡Hablemos!</p>
         <div className="footer__socialmedia">
           <Link href="/">
-            <a className="footer__anchor"><InstagramLogo/></a>
+            <a className="footer__anchor">
+              <InstagramLogo />
+            </a>
           </Link>
           <Link href="/">
-            <a className="footer__anchor"><FacebookLogo/></a>
+            <a className="footer__anchor">
+              <FacebookLogo />
+            </a>
           </Link>
           <Link href="/">
-            <a className="footer__anchor"><WhatsAppLogo/></a>
+            <a className="footer__anchor">
+              <WhatsAppLogo />
+            </a>
           </Link>
           <Link href="/">
-            <a className="footer__anchor"><EmailLogo/></a>
+            <a className="footer__anchor">
+              <EmailLogo />
+            </a>
           </Link>
         </div>
       </div>

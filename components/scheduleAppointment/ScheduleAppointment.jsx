@@ -1,9 +1,8 @@
 import React from "react";
-import {useModalUpdate} from '../../context/Modalcontext'
-
+import { useModalUpdate } from "../../context/Modalcontext";
 
 export default function ScheduleAppointment() {
-  const toggleModal = useModalUpdate()
+  const toggleModal = useModalUpdate();
   return (
     <div className="scheduleAppointment">
       <p className="scheduleAppointment__paragraph">
