@@ -1,0 +1,45 @@
+.footer {
+  background-color: #727d89;
+  padding: 4% 8%;
+  display: grid;
+  align-content: center;
+  grid-template-columns: repeat(2, 50%);
+  &__text {
+    font-family: $base_font-family;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: $white_choiz;
+    &--copyright {
+      margin-top: 24.5px;
+    }
+  }
+  &__first-col{
+    @include small-size {    
+      display: grid;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+  &__second-col {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    @include small-size {    
+     margin-top: 20px;
+    }
+  }
+  &__anchor {
+    margin-right: 32px;
+  }
+  &__anchor:last-child {
+    margin-right: unset;
+  }
+  &__socialmedia {
+    margin-top: 32px;
+  }
+  @include small-size {    
+    grid-template-columns: repeat(1, 100%);
+  }
+}

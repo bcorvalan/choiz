@@ -1,26 +1,33 @@
-import Head from 'next/head'
-import MainBanner from '../components/mainBanner/MainBanner'
-import ScheduleAppointment from '../components/scheduleAppointment/ScheduleAppointment'
-
-
-const drugsEndpoint = `https://run.mocky.io/v3/1f00949f-adc2-4484-ad6d-4f565e82ad30`
-const faqsEndpoint = `https://run.mocky.io/v3/6f0fb5ae-1758-4537-84c7-f6669edd614f`
+import React, { useState } from "react";
+import Head from "next/head";
+import MainBanner from "../components/mainBanner/MainBanner";
+import ScheduleAppointment from "../components/scheduleAppointment/ScheduleAppointment";
+import DrugsList from "../components/drugList/DrugsList";
+import FrequentQuestions from "../components/frequentQuestions/frequentQuestions";
+import { fetchDrugs, fetchFaqs } from "../helpers/helpers";
+import Footer from "../components/footer/Footer";
+import ScheduleAppointmentModal from "../components/scheduleAppointment/ScheduleAppointmentModal";
+import { ModalProvider } from "../context/Modalcontext";
 
 export async function getServerSideProps() {
-  const drugsRes = await fetch(drugsEndpoint)
-  const drugsData = await drugsRes.json();
-
-  const faqsEndpointRes = await fetch(faqsEndpoint)
-  const faqsData = await faqsEndpointRes.json()
-  return {
-    props: {
-      drugsData,
-      faqsData
-    }
+  try {
+    const drugsData = await fetchDrugs();
+    const faqsData = await fetchFaqs();
+    return {
+      props: {
+        drugsData,
+        faqsData,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        error: true,
+      },
+    };
   }
 }
-
-export default function Home({drugsData, faqsData}) {
+export default function Home({ drugsData, faqsData, error }) {
   return (
     <div>
       <Head>
@@ -28,12 +35,22 @@ export default function Home({drugsData, faqsData}) {
         <meta name="description" content="Tus anticonceptivos a tu casa" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main >
-        <MainBanner/>
-        <ScheduleAppointment/> 
-      </main>
+      {error ? (
+        <div>Hubo un error</div>
+      ) : (
+        <ModalProvider>
+          <main>
+            <ScheduleAppointmentModal/>
+            <MainBanner />
+            <ScheduleAppointment/>
+            <DrugsList drugsData={drugsData.data} />
+            <FrequentQuestions questionsData={faqsData} />
+          </main>
+        </ModalProvider>
+      )}
       <footer>
+        <Footer />
       </footer>
     </div>
-  )
+  );
 }

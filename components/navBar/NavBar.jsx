@@ -1,19 +1,55 @@
-import React from 'react'
-import ChoizLogo from '../svgs/ChoizLogo'
-import NavBarLink from './NavBarLink'
+import React, { useState } from "react";
+import ChoizLogo from "../svgs/logos/ChoizLogo";
+import NavBarLink from "./NavBarLink";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 export default function NavBar() {
-    return (
-        <div className="navBar">
-            <ChoizLogo/>
-            <ul className="navBar__list">
-                <NavBarLink itemName="Tratamientos"  itemClassName="navBar__link"/>
-                <NavBarLink itemName="Consulta online"  itemClassName="navBar__link"/>
-                <NavBarLink itemName="Quiénes somos"  itemClassName="navBar__link"/>
-                <NavBarLink itemName="Preguntas frecuentes"  itemClassName="navBar__link"/>
-                <NavBarLink itemName="Contacto"  itemClassName="navBar__link"/>
-                <NavBarLink itemName="¿Tenés dudas?"  itemClassName="navBar__link navBar__link--contact"/>
-            </ul>
+  const navBarLinks = [
+    {
+      title: "Tratamientos",
+      url: "/",
+    },
+    {
+      title: "Consulta online",
+      url: "/",
+    },
+    {
+      title: "Quiénes somos",
+      url: "/",
+    },
+    {
+      title: "Preguntas frecuentes",
+      url: "/",
+    },
+    {
+      title: "Contacto",
+      url: "/",
+    },
+  ];
+  const [showNabMobile, setShowNabMobile] = useState(false);
+
+  function toggleModal() {
+    setShowNab((prevShowModal) => !prevShowModal);
+  }
+
+  return (
+    <div className="nav-bar">
+      <ChoizLogo />
+      <ul className="nav-bar__list">
+        {navBarLinks.map((element, index) => {
+          return <NavBarLink link={element} key={index} />;
+        })}
+      </ul>
+      <div className="any-doubts">
+        <button className="any-doubts__button"></button>
+        <div className="any-doubts__text">
+          <p>¿Tenés dudas?</p>
         </div>
-    )
+      </div>
+      <button className="nav-bar__mobile-icon">
+        <FontAwesomeIcon icon={faBars} />
+      </button>
+    </div>
+  );
 }

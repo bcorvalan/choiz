@@ -1,4 +1,51 @@
-.main-banner{
-    background: linear-gradient(205.22deg, #FFA15C -2.89%, rgba(255, 91, 146, 0.95) 59.15%, #771CFE 125.51%);
-    height: 458.38px;
+.main-banner {
+  padding: 27.08px 8% 124.37px 8%;
+  background: linear-gradient(
+    205.22deg,
+    #ffa15c -2.89%,
+    rgba(255, 91, 146, 0.95) 59.15%,
+    #771cfe 125.51%
+  );
+  position: relative;
+  &__title {
+    font-family: $base_font-family;
+    font-size: 3.75rem;
+    font-weight: 600;
+    letter-spacing: 0px;
+    max-width: 700px;
+    color: $white_choiz;
+    margin-top: 118.36px;
+    @include medium-size {
+      max-width: unset;
+      text-align: center;
+      padding: 0 8%;
+    }
+    @include small-size {
+      font-size: 3rem;
+    }
+  }
+  &__circle-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include extra-small-size {
+      display: none;
+    }
+  }
+  &__heart {
+    position: absolute;
+    right: 342.17px;
+    bottom: 132.31px;
+    @include medium-size {
+      display: none;
+    }
+  }
+  &__doctor {
+    position: absolute;
+    right: 147.43px;
+    bottom: -3px;
+    @include medium-size {
+      display: none;
+    }
+  }
 }

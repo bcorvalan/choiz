@@ -1,0 +1,59 @@
+.drugsList {
+  margin-right: 17px;
+  background-color: $light-grey_choiz;
+  border-top-right-radius: 30px;
+  padding: 50px 15% 155px 15%;
+  &__title {
+    @include titleSection;
+    margin-bottom: 53px;
+  }
+}
+
+.drug-category {
+  margin-top: 47px;
+  font-family: $base_font-family;
+  &__title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 23px;
+    letter-spacing: 0px;
+    color: $gray_choiz;
+    padding: 18px 20px;
+    border-bottom: 1px solid $medium-gray_choiz;
+  }
+  &__header {
+    &-wrapper {
+      @include defaultTableStyle;
+      height: 54.16px;
+    }
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0px;
+    color: $gray_choiz;
+    @include extra-small-size{    
+      font-size:0.75rem;
+     }
+  }
+  &__observation {
+    font-size: 0.75rem;
+  }
+}
+
+.drugList {
+  @include defaultTableStyle;
+  height: 46.14px;
+  background-color: $white_choiz;
+  border-bottom: 1px solid $medium-gray_choiz;
+  font-family: $base_font-family;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 14px;
+  color: $dark-grey_choiz;
+  &__brand {
+    text-transform: uppercase;
+  }
+  @include extra-small-size{    
+    font-size:0.75rem;
+   }
+}
